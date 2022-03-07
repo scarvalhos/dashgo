@@ -7,6 +7,7 @@ import {
     Checkbox,
     Flex,
     Heading,
+    HStack,
     Icon,
     Spinner,
     Table,
@@ -19,7 +20,7 @@ import {
     useBreakpointValue
 } from "@chakra-ui/react";
 
-import { RiAddLine, RiPencilLine } from "react-icons/ri";
+import { RiAddLine, RiPencilLine, RiRefreshLine } from "react-icons/ri";
 
 import { useQuery } from 'react-query'
 
@@ -28,7 +29,7 @@ import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
 
 export default function UserList() {
-    const { data, isLoading, error } = useQuery('users', async () => {
+    const { data, isLoading, isFetching, refetch, error } = useQuery('users', async () => {
         const response = await fetch('http://localhost:3000/api/users')
         const data = await response.json()
         
@@ -64,19 +65,38 @@ export default function UserList() {
 
                 <Box flex="1" borderRadius={8} bg="gray.800" p="8" >
                     <Flex mb="8" justify="space-between" align="center">
-                        <Heading size="lg" fontWeight="normal">Usuários</Heading>
+                        <Heading size="lg" fontWeight="normal">
+                            Usuários
+                            { !isLoading && isFetching && <Spinner size="sm" color="gray.500" ml="4" /> }
+                        </Heading>
 
-                        <Link href="/users/create" passHref>
+                        <HStack>
                             <Button
                                 as="a"
                                 size="sm"
                                 fontSize="sm"
-                                colorScheme="pink"
-                                leftIcon={<Icon as={RiAddLine} fontSize="20" />}
+                                cursor="pointer"
+                                bg="gray.700"
+                                _hover={{
+                                    bgColor: 'gray.500'
+                                }}
+                                leftIcon={<Icon as={RiRefreshLine} fontSize="20" />}
+                                onClick={() => refetch()}
                             >
-                                Criar novo usuário
+                                Refresh
                             </Button>
-                        </Link>
+                            <Link href="/users/create" passHref>
+                                <Button
+                                    as="a"
+                                    size="sm"
+                                    fontSize="sm"
+                                    colorScheme="pink"
+                                    leftIcon={<Icon as={RiAddLine} fontSize="20" />}
+                                >
+                                    Criar novo usuário
+                                </Button>
+                            </Link>
+                        </HStack>
                     </Flex>
 
                     { isLoading ? (
