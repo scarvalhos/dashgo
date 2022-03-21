@@ -32,3 +32,29 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - Chakra ui
 - React Hook Form
 - Yup
+
+### 🧭 Rodando a aplicação
+
+```bash
+# Clone este repositório
+$ git clone https://github.com/scarvalhos/dashgo
+
+# Acesse a pasta do projeto no seu terminal/cmd
+$ cd dashgo
+
+# Instale as dependências
+$ npm install
+
+# ou apenas
+$ yarn
+
+# Execute a aplicação em modo de desenvolvimento
+$ npm run start
+
+# ou
+$ yarn dev
+
+# A aplicação será aberta na porta:3000 - acesse http://localhost:3000
+```
+
+Feito com ❤️ por Samara Carvalho 👋🏽 Entre em contato!
