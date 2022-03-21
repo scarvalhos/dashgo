@@ -29,3 +29,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - TypeScript
 - React Query
 - Mirage.js
+- Chakra ui
+- React Hook Form
+- Yup
