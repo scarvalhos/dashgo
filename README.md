@@ -16,3 +16,16 @@
     <img alt="Stargazers" src="https://img.shields.io/github/stars/scarvalhos/dashgo?style=social">
   </a>
 </p>
+
+## 💻 Sobre o projeto
+
+> Dashgo - é um projeto desenvolvido no Programa de Aceleração Profissional Ignite da Rocketseat Education.
+
+## 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [Node.js][nodejs]
+- [Next][nextjs]
+- [TypeScript][typescript]
+- [React Query][reactquery]
