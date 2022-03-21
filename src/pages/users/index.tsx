@@ -129,7 +129,7 @@ export default function UserList() {
                                                         <Text fontSize="sm" color="gray.300">{user.email}</Text>
                                                     </Box>
                                                 </Td>
-                                                { isWideVersion && <Td>{user.createdAt}</Td> }
+                                                { isWideVersion && <Td>{user.created_at}</Td> }
                                                 { isWideVersion && (
                                                     <Td>
                                                         <Button
@@ -162,3 +162,14 @@ export default function UserList() {
         </Box>
     )
 }
+
+// export const getServerSideProps: GetServerSideProps = async () => {
+//     const { users, totalCount } = await getUsers(1)
+
+//     return {
+//         props: {
+//             users,
+//             totalCount,
+//         }
+//     }
+// }

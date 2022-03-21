@@ -1,4 +1,4 @@
-import { useQuery } from "react-query"
+import { useQuery, UseQueryOptions, UseQueryResult } from "react-query"
 import { api } from "../api"
 
 type User = {
@@ -27,7 +27,7 @@ export async function getUsers(page: number): Promise<GetUsersResponse> {
             id: user.id,
             name: user.name,
             email: user.email,
-            createdAt: new Date(user.created_at).toLocaleDateString('pt-BR', {
+            created_at: new Date(user.created_at).toLocaleDateString('pt-BR', {
                 day: '2-digit',
                 month: 'long',
                 year: 'numeric'
@@ -41,8 +41,9 @@ export async function getUsers(page: number): Promise<GetUsersResponse> {
     }
 }
 
-export function useUsers(page: number) {
+export function useUsers(page: number, options?: UseQueryOptions) {
     return useQuery(['users', page], () => getUsers(page), {
         staleTime: 1000 * 60 * 10, // 10 minutes
-    })
+        ...options,
+    }) as UseQueryResult<GetUsersResponse, unknown>
 }
