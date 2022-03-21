@@ -25,7 +25,7 @@
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-- [Node.js][nodejs]
-- [Next][nextjs]
-- [TypeScript][typescript]
-- [React Query][reactquery]
+- Next.js
+- TypeScript
+- React Query
+- Mirage.js
